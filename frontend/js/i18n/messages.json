@@ -72,6 +72,7 @@
       "enable-ssl": "Enable SSL",
       "force-ssl": "Force SSL",
       "http2-support": "HTTP/2 Support",
+      "http3-support": "HTTP/3 Support",
       "domain-names": "Domain Names",
       "cert-provider": "Certificate Provider",
       "block-exploits": "Block Common Exploits",
