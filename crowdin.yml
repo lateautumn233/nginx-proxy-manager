@@ -1,0 +1,3 @@
+files:
+  - source: frontend/js/i18n/messages.json
+    translation: frontend/js/i18n/messages_%locale%.json
