@@ -19,6 +19,7 @@ const model = Backbone.Model.extend({
             hsts_subdomains:     false,
             block_exploits:      false,
             http2_support:       false,
+            http3_support:       false,
             advanced_config:     '',
             enabled:             true,
             meta:                {},

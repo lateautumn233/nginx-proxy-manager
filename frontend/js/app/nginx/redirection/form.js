@@ -27,6 +27,7 @@ module.exports = Mn.View.extend({
         hsts_enabled:             'input[name="hsts_enabled"]',
         hsts_subdomains:          'input[name="hsts_subdomains"]',
         http2_support:            'input[name="http2_support"]',
+        http3_support:            'input[name="http3_support"]',
         dns_challenge_switch:     'input[name="meta[dns_challenge]"]',
         dns_challenge_content:    '.dns-challenge',
         dns_provider:             'select[name="meta[dns_provider]"]',
@@ -48,7 +49,7 @@ module.exports = Mn.View.extend({
 
             let enabled = id === 'new' || parseInt(id, 10) > 0;
 
-            let inputs = this.ui.ssl_forced.add(this.ui.http2_support);
+            let inputs = this.ui.ssl_forced.add(this.ui.http2_support).add(this.ui.http3_support);
             inputs
                 .prop('disabled', !enabled)
                 .parents('.form-group')
@@ -131,6 +132,7 @@ module.exports = Mn.View.extend({
             data.block_exploits     = !!data.block_exploits;
             data.preserve_path      = !!data.preserve_path;
             data.http2_support      = !!data.http2_support;
+            data.http3_support      = !!data.http3_support;
             data.hsts_enabled       = !!data.hsts_enabled;
             data.hsts_subdomains    = !!data.hsts_subdomains;
             data.ssl_forced         = !!data.ssl_forced;

@@ -21,6 +21,7 @@ const model = Backbone.Model.extend({
             allow_websocket_upgrade: false,
             block_exploits:          false,
             http2_support:           false,
+            http3_support:           false,
             advanced_config:         '',
             enabled:                 true,
             meta:                    {},
