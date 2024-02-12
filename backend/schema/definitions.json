@@ -226,6 +226,11 @@
       "example": false,
       "type": "boolean"
     },
+    "http3_support": {
+      "description": "HTTP3 Protocol Support",
+      "example": false,
+      "type": "boolean"
+    },
     "block_exploits": {
       "description": "Should we block common exploits",
       "example": true,

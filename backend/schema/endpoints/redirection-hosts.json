@@ -47,6 +47,9 @@
     "http2_support": {
       "$ref": "../definitions.json#/definitions/http2_support"
     },
+    "http3_support": {
+      "$ref": "../definitions.json#/definitions/http3_support"
+    },
     "block_exploits": {
       "$ref": "../definitions.json#/definitions/block_exploits"
     },
@@ -99,6 +102,9 @@
     },
     "http2_support": {
       "$ref": "#/definitions/http2_support"
+    },
+    "http3_support": {
+      "$ref": "#/definitions/http3_support"
     },
     "block_exploits": {
       "$ref": "#/definitions/block_exploits"
@@ -181,6 +187,9 @@
           "http2_support": {
             "$ref": "#/definitions/http2_support"
           },
+          "http3_support": {
+            "$ref": "#/definitions/http3_support"
+          },
           "block_exploits": {
             "$ref": "#/definitions/block_exploits"
           },
@@ -241,6 +250,9 @@
           },
           "http2_support": {
             "$ref": "#/definitions/http2_support"
+          },
+          "http3_support": {
+            "$ref": "#/definitions/http3_support"
           },
           "block_exploits": {
             "$ref": "#/definitions/block_exploits"
