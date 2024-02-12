@@ -1,5 +1,4 @@
 {
-  "en": {
     "str": {
       "email-address": "Email address",
       "username": "Username",
@@ -293,5 +292,4 @@
       "default-site-html": "Custom Page",
       "default-site-redirect": "Redirect"
     }
-  }
 }
