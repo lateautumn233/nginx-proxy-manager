@@ -5,9 +5,6 @@ def shOutput = ""
 def buildxPushTags = ""
 
 pipeline {
-	agent {
-		label 'docker-multiarch'
-	}
 	options {
 		buildDiscarder(logRotator(numToKeepStr: '5'))
 		disableConcurrentBuilds()
@@ -32,7 +29,7 @@ pipeline {
 					}
 					steps {
 						script {
-							buildxPushTags = "-t docker.io/jc21/${IMAGE}:${BUILD_VERSION} -t docker.io/jc21/${IMAGE}:${MAJOR_VERSION} -t docker.io/jc21/${IMAGE}:latest"
+							buildxPushTags = "-t docker.io/lateautumn233/${IMAGE}:${BUILD_VERSION} -t docker.io/lateautumn233/${IMAGE}:${MAJOR_VERSION} -t docker.io/lateautumn233/${IMAGE}:latest"
 						}
 					}
 				}
@@ -45,7 +42,7 @@ pipeline {
 					steps {
 						script {
 							// Defaults to the Branch name, which is applies to all branches AND pr's
-							buildxPushTags = "-t docker.io/jc21/${IMAGE}:github-${BRANCH_LOWER}"
+							buildxPushTags = "-t docker.io/lateautumn233/${IMAGE}:github-${BRANCH_LOWER}"
 						}
 					}
 				}
@@ -177,7 +174,7 @@ pipeline {
 				}
 			}
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'jc21-dockerhub', passwordVariable: 'dpass', usernameVariable: 'duser')]) {
+				withCredentials([usernamePassword(credentialsId: 'lateautumn233-dockerhub', passwordVariable: 'dpass', usernameVariable: 'duser')]) {
 					sh 'docker login -u "${duser}" -p "${dpass}"'
 					sh "./scripts/buildx --push ${buildxPushTags}"
 				}
@@ -222,7 +219,7 @@ pipeline {
 					}
 					steps {
 						script {
-							npmGithubPrComment("Docker Image for build ${BUILD_NUMBER} is available on [DockerHub](https://cloud.docker.com/repository/docker/jc21/${IMAGE}) as `jc21/${IMAGE}:github-${BRANCH_LOWER}`\n\n**Note:** ensure you backup your NPM instance before testing this PR image! Especially if this PR contains database changes.", true)
+							npmGithubPrComment("Docker Image for build ${BUILD_NUMBER} is available on [DockerHub](https://cloud.docker.com/repository/docker/lateautumn233/${IMAGE}) as `lateautumn233/${IMAGE}:github-${BRANCH_LOWER}`\n\n**Note:** ensure you backup your NPM instance before testing this PR image! Especially if this PR contains database changes.", true)
 						}
 					}
 				}
@@ -233,7 +230,7 @@ pipeline {
 		always {
 			sh 'docker-compose down --remove-orphans --volumes -t 30'
 			sh 'echo Reverting ownership'
-			sh 'docker run --rm -v $(pwd):/data jc21/ci-tools chown -R $(id -u):$(id -g) /data'
+			sh 'docker run --rm -v $(pwd):/data lateautumn233/ci-tools chown -R $(id -u):$(id -g) /data'
 		}
 		success {
 			juxtapose event: 'success'
